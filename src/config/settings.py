@@ -20,3 +20,22 @@ class DatabaseSettings(BaseSettings):
 
 
 database_settings = DatabaseSettings()
+
+class GeneralSettings(BaseSettings):
+    root_path: str
+    api_key: str
+    local_filesystem_root: str
+    project_name: str
+    version: str
+
+    jwt_access_secret_key: str
+    jwt_refresh_secret_key: str
+    algorithm: str
+    access_token_expire_minutes: int
+    refresh_token_expire_minutes: int
+
+    class Config:
+        env_file = ".env"
+
+
+general = GeneralSettings()

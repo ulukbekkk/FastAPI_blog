@@ -12,4 +12,4 @@ class Post(Base):
     text: Mapped[str] = Column(String(500))
 
     user_id = Column(Integer, ForeignKey("user.id", ondelete='CASCADE'), nullable=False)
-    user = relationship("User", back_populates="post")
+

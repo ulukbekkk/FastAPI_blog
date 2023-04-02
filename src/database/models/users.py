@@ -11,7 +11,7 @@ class User(Base):
     username: Mapped[str] = Column(String, unique=True, nullable=False)
     password: Mapped[str] = Column(String, nullable=False)
 
-    user = relationship("Post", back_populates="user")
+    # post = relationship("Post", backref="user")
 
     def __str__(self):
         return f'{self.username}'
