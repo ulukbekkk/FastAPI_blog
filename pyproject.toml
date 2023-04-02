@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "blog-fastapi"
+version = "0.1.0"
+description = ""
+authors = ["ulukbekkk <uluk.mz@gmail.com>"]
+readme = "README.md"
+packages = [{include = "blog_fastapi"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.95.0"
+sqlalchemy = "^2.0.8"
+uvicorn = "^0.21.1"
+alembic = "^1.10.2"
+psycopg2-binary = "^2.9.5"
+python-dotenv = "^1.0.0"
+asyncpg = "^0.27.0"
+python-jose = "^3.3.0"
+passlib = "^1.7.4"
+python-multipart = "^0.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
