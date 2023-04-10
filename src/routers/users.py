@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, status
 from fastapi.security import OAuth2PasswordRequestForm, HTTPBearer
 
-
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.database.dependencies import get_async_session
@@ -26,8 +25,9 @@ async def get_all_user_api(session: AsyncSession = Depends(get_async_session)):
     return await get_all_user(session=session)
 
 
-@user_router.post('/login', response_model=TokenResponse, status_code=status.HTTP_200_OK,)
-async def user_login_api(data: OAuth2PasswordRequestForm = Depends(), session: AsyncSession = Depends(get_async_session)):
+@user_router.post('/login', response_model=TokenResponse, status_code=status.HTTP_200_OK, )
+async def user_login_api(data: OAuth2PasswordRequestForm = Depends(),
+                         session: AsyncSession = Depends(get_async_session)):
     return await user_login(data=data, session=session)
 
 
@@ -37,7 +37,7 @@ async def change_access_token_api(refresh_token: str, ):
 
 
 @user_router.delete('/user_me', status_code=status.HTTP_204_NO_CONTENT)
-async def delete_user_profile_api(user: User = Depends(get_current_user),
-                                  session: AsyncSession = Depends(get_async_session)):
+async def delete_user_api(user: User = Depends(get_current_user),
+                          session: AsyncSession = Depends(get_async_session)):
     await delete_user(user=user, session=session)
     return {'msg': 'Success'}

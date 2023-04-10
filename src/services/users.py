@@ -20,7 +20,7 @@ async def create_user(session: AsyncSession, data: UserCreateSchema, ):
 
 
 async def get_all_user(session: AsyncSession):
-    user_query: User = (await session.scalars(select(User))).all()
+    user_query: list[User] = (await session.scalars(select(User))).all()
     return user_query
 
 

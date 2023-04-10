@@ -4,14 +4,13 @@ from fastapi.responses import Response
 
 from src.config.settings import general
 
-
 from src.routers.users import user_router
-# from src.routers.kassa24 import kassa_router
+from src.routers.posts import post_router
 
 
 def include_router(app: FastAPI):
     app.include_router(user_router, prefix='/api/v1/users')
-    # app.include_router(kassa_router, prefix='/api/v1/kassa24')
+    app.include_router(post_router, prefix='/api/v1/posts')
     pass
 
 
